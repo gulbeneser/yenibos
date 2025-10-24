@@ -1,0 +1,26 @@
+---
+title: 'The LLM operations playbook'
+slug: 'llm-ops-playbook'
+locale: 'en'
+description: 'Serving large language models in production with RAG, prompt governance and monitoring.'
+date: '2024-04-02'
+category: 'AI'
+---
+
+## Components
+
+- **Data layer:** Cleaned content, embeddings and version control.
+- **Model orchestration:** Standardising on Gemini 2.5 Pro with guardrailed prompts per workflow.
+- **Monitoring:** Tracking response quality and cost.
+
+HighlightBox title="Monitoring stack"
+Grafana plus Prometheus surface token spend, latency and quality scores.
+HighlightBox
+
+## Operational rhythm
+
+ProCon pros={['Weekly evaluation set refresh', 'Business stakeholders provide feedback', 'Cost alerts automated']} cons={['Requires constant data hygiene', 'Model upgrades demand process discipline']}
+
+Callout type="info" title="Implementation"
+Maintain a dedicated staging environment for LLM workloads to reduce rollout risk.
+Callout
