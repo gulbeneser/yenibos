@@ -1,15 +1,24 @@
 import { notFound } from 'next/navigation';
 import { getMdxBySlug } from '@/lib/mdx';
 import type { Locale } from '@/lib/i18n/config';
+import { isLocale } from '@/lib/i18n/config';
 import { buildMetadata } from '@/lib/seo';
 import { blogPostingJsonLd } from '@/lib/schema';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale; slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale, slug } = await params;
+  const { locale: rawLocale, slug: rawSlug } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
+  const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
+  if (!slug) {
+    notFound();
+  }
   const result = await getMdxBySlug('blog', slug, locale);
   if (!result)
     return buildMetadata({
@@ -27,9 +36,17 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ locale: Locale; slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale, slug } = await params;
+  const { locale: rawLocale, slug: rawSlug } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
+  const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
+  if (!slug) {
+    notFound();
+  }
   const result = await getMdxBySlug('blog', slug, locale);
 
   if (!result) {

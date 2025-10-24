@@ -1,15 +1,21 @@
 import Link from 'next/link';
 import { getMdxList } from '@/lib/mdx';
 import type { Locale } from '@/lib/i18n/config';
+import { isLocale } from '@/lib/i18n/config';
 import { buildMetadata } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   return buildMetadata({
     locale,
     path: `/${locale}/blog`,
@@ -20,11 +26,15 @@ export async function generateMetadata({
 export default async function BlogPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const messages = await getMessages();
   const blog = (messages as any).blog;
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   const posts = await getMdxList('blog', locale);
 
   return (

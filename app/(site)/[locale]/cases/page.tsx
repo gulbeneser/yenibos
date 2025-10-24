@@ -2,15 +2,21 @@ import Link from 'next/link';
 import { CaseCard } from '@/components/case-card';
 import { getMdxList } from '@/lib/mdx';
 import type { Locale } from '@/lib/i18n/config';
+import { isLocale } from '@/lib/i18n/config';
 import { buildMetadata } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   return buildMetadata({
     locale,
     path: `/${locale}/cases`,
@@ -22,14 +28,20 @@ export default async function CasesPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: Locale }>;
-  searchParams: Promise<{ filter?: string }>;
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const messages = await getMessages();
   const casesMessages = (messages as any).cases;
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   const resolvedSearchParams = (await searchParams) ?? {};
-  const filter = resolvedSearchParams.filter ?? 'all';
+  const filterParam = resolvedSearchParams.filter;
+  const filterValue = Array.isArray(filterParam) ? filterParam[0] : filterParam;
+  const filter = filterValue ?? 'all';
   const data = await getMdxList('cases', locale);
   const filtered =
     filter === 'all'

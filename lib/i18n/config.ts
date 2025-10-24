@@ -10,3 +10,15 @@ export const localeNames: Record<Locale, string> = {
 };
 
 export const localePrefix = 'as-needed';
+
+export function isLocale(value: string | null | undefined): value is Locale {
+  if (!value) {
+    return false;
+  }
+
+  return (locales as readonly string[]).includes(value);
+}
+
+export function resolveLocale(value: string | null | undefined): Locale {
+  return isLocale(value) ? value : defaultLocale;
+}

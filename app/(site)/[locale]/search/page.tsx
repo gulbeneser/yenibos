@@ -1,14 +1,20 @@
 import { getMdxList } from '@/lib/mdx';
 import type { Locale } from '@/lib/i18n/config';
+import { isLocale } from '@/lib/i18n/config';
 import { buildMetadata } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   return buildMetadata({
     locale,
     path: `/${locale}/search`,
@@ -20,13 +26,19 @@ export default async function SearchPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: Locale }>;
-  searchParams: Promise<{ q?: string }>;
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const messages = await getMessages();
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   const resolvedSearchParams = (await searchParams) ?? {};
-  const query = (resolvedSearchParams.q ?? '').toLowerCase();
+  const queryParam = resolvedSearchParams.q;
+  const queryValue = Array.isArray(queryParam) ? queryParam[0] : queryParam;
+  const query = (queryValue ?? '').toLowerCase();
   const blog = await getMdxList('blog', locale);
   const cases = await getMdxList('cases', locale);
   const results = [...blog, ...cases].filter((item) =>

@@ -1,16 +1,22 @@
 import type { Locale } from '@/lib/i18n/config';
+import { isLocale } from '@/lib/i18n/config';
 import { PricingCard } from '@/components/pricing-card';
 import { FAQ } from '@/components/faq';
 import { buildMetadata } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
 import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
   return buildMetadata({
     locale,
     path: `/${locale}/pricing`,
@@ -21,11 +27,15 @@ export async function generateMetadata({
 export default async function PricingPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const messages = await getMessages();
   const pricing = (messages as any).pricing;
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
+  const locale: Locale = rawLocale;
 
   return (
     <div className="space-y-12">
