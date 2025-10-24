@@ -7,11 +7,12 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/blog`,
+    locale,
+    path: `/${locale}/blog`,
     title: 'Blog',
   });
 }
@@ -19,11 +20,12 @@ export async function generateMetadata({
 export default async function BlogPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
   const messages = await getMessages();
   const blog = (messages as any).blog;
-  const posts = await getMdxList('blog', params.locale);
+  const { locale } = await params;
+  const posts = await getMdxList('blog', locale);
 
   return (
     <div className="space-y-10">
@@ -46,7 +48,7 @@ export default async function BlogPage({
             <p className="mt-2 text-sm text-muted">{post.description}</p>
             <p className="mt-3 text-xs text-muted">{post.date}</p>
             <Link
-              href={`/${params.locale}/blog/${post.slug}`}
+              href={`/${locale}/blog/${post.slug}`}
               className="mt-4 inline-flex text-sm text-brand-300"
             >
               {blog.readMore}

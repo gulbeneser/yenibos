@@ -8,11 +8,12 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/cases`,
+    locale,
+    path: `/${locale}/cases`,
     title: 'Case Studies',
   });
 }
@@ -21,13 +22,14 @@ export default async function CasesPage({
   params,
   searchParams,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
   searchParams: { filter?: string };
 }) {
   const messages = await getMessages();
   const casesMessages = (messages as any).cases;
+  const { locale } = await params;
   const filter = searchParams.filter ?? 'all';
-  const data = await getMdxList('cases', params.locale);
+  const data = await getMdxList('cases', locale);
   const filtered =
     filter === 'all'
       ? data
@@ -45,7 +47,7 @@ export default async function CasesPage({
         {casesMessages.filters.map((item: any) => (
           <Link
             key={item.id}
-            href={`/${params.locale}/cases?filter=${item.id}`}
+            href={`/${locale}/cases?filter=${item.id}`}
             className={`rounded-full border px-4 py-2 text-sm ${
               filter === item.id
                 ? 'border-brand-300 text-brand-300'

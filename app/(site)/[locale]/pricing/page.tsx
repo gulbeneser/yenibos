@@ -8,11 +8,12 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/pricing`,
+    locale,
+    path: `/${locale}/pricing`,
     title: 'Pricing',
   });
 }
@@ -20,10 +21,11 @@ export async function generateMetadata({
 export default async function PricingPage({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
   const messages = await getMessages();
   const pricing = (messages as any).pricing;
+  const { locale } = await params;
 
   return (
     <div className="space-y-12">
@@ -43,7 +45,7 @@ export default async function PricingPage({
             highlighted={plan.highlighted}
             cta={{
               label: pricing.custom.cta,
-              href: `/${params.locale}/contact`,
+              href: `/${locale}/contact`,
             }}
           />
         ))}
@@ -54,7 +56,7 @@ export default async function PricingPage({
         </h2>
         <p className="mt-2 text-sm text-muted">{pricing.custom.description}</p>
         <Button asChild className="mt-4">
-          <a href={`/${params.locale}/contact`}>{pricing.custom.cta}</a>
+          <a href={`/${locale}/contact`}>{pricing.custom.cta}</a>
         </Button>
       </div>
       <section>

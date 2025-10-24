@@ -13,15 +13,16 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
-  return buildMetadata({ locale: params.locale, path: `/${params.locale}` });
+  const { locale } = await params;
+  return buildMetadata({ locale, path: `/${locale}` });
 }
 
 export default async function HomePage({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
   const messages = await getMessages();
   const home = (messages as any).home;
@@ -37,7 +38,8 @@ export default async function HomePage({
     role: string;
   }>;
   const clients = home.clients as string[];
-  const cases = await getMdxList('cases', params.locale);
+  const { locale } = await params;
+  const cases = await getMdxList('cases', locale);
 
   return (
     <div className="space-y-20">
@@ -46,11 +48,11 @@ export default async function HomePage({
         subtitle={hero.subtitle}
         primaryCta={{
           ...hero.primaryCta,
-          href: `/${params.locale}${hero.primaryCta.href}`,
+          href: `/${locale}${hero.primaryCta.href}`,
         }}
         secondaryCta={{
           ...hero.secondaryCta,
-          href: `/${params.locale}${hero.secondaryCta.href}`,
+          href: `/${locale}${hero.secondaryCta.href}`,
         }}
       />
 
@@ -86,7 +88,7 @@ export default async function HomePage({
             </p>
           </div>
           <Button asChild variant="ghost" className="hidden md:inline-flex">
-            <Link href={`/${params.locale}/cases`}>
+            <Link href={`/${locale}/cases`}>
               {home.selectedCases.cta}
             </Link>
           </Button>
@@ -143,7 +145,7 @@ export default async function HomePage({
         </h2>
         <p className="mt-2 text-sm text-muted">{home.cta.subtitle}</p>
         <Button asChild className="mt-6">
-          <Link href={`/${params.locale}/contact`}>{home.cta.button}</Link>
+          <Link href={`/${locale}/contact`}>{home.cta.button}</Link>
         </Button>
       </section>
     </div>

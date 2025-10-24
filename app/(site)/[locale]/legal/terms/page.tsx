@@ -5,11 +5,12 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/legal/terms`,
+    locale,
+    path: `/${locale}/legal/terms`,
     title: 'Terms',
   });
 }

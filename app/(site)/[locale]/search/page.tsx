@@ -6,11 +6,12 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const { locale } = await params;
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/search`,
+    locale,
+    path: `/${locale}/search`,
     title: 'Search',
   });
 }
@@ -19,13 +20,14 @@ export default async function SearchPage({
   params,
   searchParams,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
   searchParams: { q?: string };
 }) {
   const messages = await getMessages();
+  const { locale } = await params;
   const query = (searchParams.q ?? '').toLowerCase();
-  const blog = await getMdxList('blog', params.locale);
-  const cases = await getMdxList('cases', params.locale);
+  const blog = await getMdxList('blog', locale);
+  const cases = await getMdxList('cases', locale);
   const results = [...blog, ...cases].filter((item) =>
     query
       ? `${item.title} ${item.description}`.toLowerCase().includes(query)
@@ -57,7 +59,7 @@ export default async function SearchPage({
             results.map((item) => (
               <a
                 key={`${item.slug}-${item.locale}`}
-                href={`/${params.locale}/${item.category ? 'blog' : 'cases'}/${item.slug}`}
+                href={`/${locale}/${item.category ? 'blog' : 'cases'}/${item.slug}`}
                 className="block rounded-3xl border border-brand-500/20 bg-brand-900/40 p-4 text-sm text-muted hover:border-brand-300 hover:text-brand-300"
               >
                 <span className="text-xs uppercase tracking-wide text-brand-300">

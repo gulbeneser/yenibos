@@ -7,17 +7,18 @@ import { blogPostingJsonLd } from '@/lib/schema';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale; slug: string };
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
-  const result = await getMdxBySlug('blog', params.slug, params.locale);
+  const { locale, slug } = await params;
+  const result = await getMdxBySlug('blog', slug, locale);
   if (!result)
     return buildMetadata({
-      locale: params.locale,
-      path: `/${params.locale}/blog/${params.slug}`,
+      locale,
+      path: `/${locale}/blog/${slug}`,
     });
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/blog/${params.slug}`,
+    locale,
+    path: `/${locale}/blog/${slug}`,
     title: result.frontMatter.title,
     description: result.frontMatter.description,
   });
@@ -26,9 +27,10 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: { locale: Locale; slug: string };
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
-  const result = await getMdxBySlug('blog', params.slug, params.locale);
+  const { locale, slug } = await params;
+  const result = await getMdxBySlug('blog', slug, locale);
 
   if (!result) {
     notFound();
@@ -54,7 +56,7 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             blogPostingJsonLd({
-              locale: params.locale,
+              locale,
               title: frontMatter.title,
               description: frontMatter.description,
               slug: frontMatter.slug,

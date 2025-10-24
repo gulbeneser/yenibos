@@ -9,17 +9,18 @@ import { getMessages } from 'next-intl/server';
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale; slug: string };
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
-  const result = await getMdxBySlug('cases', params.slug, params.locale);
+  const { locale, slug } = await params;
+  const result = await getMdxBySlug('cases', slug, locale);
   if (!result)
     return buildMetadata({
-      locale: params.locale,
-      path: `/${params.locale}/cases/${params.slug}`,
+      locale,
+      path: `/${locale}/cases/${slug}`,
     });
   return buildMetadata({
-    locale: params.locale,
-    path: `/${params.locale}/cases/${params.slug}`,
+    locale,
+    path: `/${locale}/cases/${slug}`,
     title: result.frontMatter.title,
     description: result.frontMatter.description,
   });
@@ -28,9 +29,10 @@ export async function generateMetadata({
 export default async function CaseDetailPage({
   params,
 }: {
-  params: { locale: Locale; slug: string };
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
-  const result = await getMdxBySlug('cases', params.slug, params.locale);
+  const { locale, slug } = await params;
+  const result = await getMdxBySlug('cases', slug, locale);
 
   if (!result) {
     notFound();
@@ -96,7 +98,7 @@ export default async function CaseDetailPage({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             caseStudyJsonLd({
-              locale: params.locale,
+              locale,
               title: frontMatter.title,
               slug: frontMatter.slug,
               industry: frontMatter.industry ?? '',
