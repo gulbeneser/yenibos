@@ -1,0 +1,26 @@
+---
+title: "LLM operasyon playbook'u"
+slug: 'llm-ops-playbook'
+locale: 'tr'
+description: 'RAG, prompt yönetimi ve izleme ile üretim ortamında LLM hizmeti sunmak.'
+date: '2024-04-02'
+category: 'AI'
+---
+
+## Bileşenler
+
+- **Veri katmanı:** Temizlenmiş içerik, embedding'ler ve sürümleme.
+- **Model orkestrasyonu:** Her iş akışında Gemini 2.5 Pro ve korumalı prompt setleri.
+- **İzleme:** Yanıt kalitesi ve maliyet metriği.
+
+HighlightBox title="İzleme paneli"
+Grafana ve Prometheus ile token tüketimi, gecikme ve yanıt puanlarını takip ediyoruz.
+HighlightBox
+
+## Operasyon ritmi
+
+ProCon pros={['Haftalık test seti güncellenir', 'İş birimleri geri bildirim verir', 'Maliyet uyarıları otomatik']} cons={['Sürekli veri hijyeni gerekir', 'Model güncellemeleri süreç ister']}
+
+Callout type="info" title="Uygulama"
+LLM işlemleri için ayrı bir staging ortamı kurmak, riskleri minimize eder.
+Callout
