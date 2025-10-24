@@ -51,6 +51,13 @@ Renk ve tipografi token'ları `styles/globals.css` içerisinde CSS değişkenler
 1. `pnpm build` ile prodüksiyon çıktısını alın.
 2. Vercel üzerinde yeni proje oluşturup repoyu bağlayın. `NEXT_PUBLIC_SITE_URL` ve gerekiyorsa analiz/script anahtarlarını environment olarak ekleyin.
 3. Alternatif olarak Netlify ya da başka bir Node destekli platformda `pnpm install && pnpm build` komutlarıyla dağıtabilirsiniz.
+   - Netlify için repoda yer alan `netlify.toml` dosyası otomatik olarak `@netlify/plugin-nextjs` eklentisini yükleyip App Router yönlendirmelerini aktif eder.
+   - Ortam değişkenleri bölümünden `GEMINI_API_KEY` ve `NEXT_PUBLIC_SITE_URL` değerlerini tanımlamayı unutmayın.
+
+## Gemini 2.5 Pro entegrasyonu
+
+- Projedeki tüm yapay zeka destekli akışlar Gemini 2.5 Pro üzerine standartlaştırılmıştır.
+- Lokal geliştirme ve prodüksiyon için `.env.local` veya platform ortam ayarlarına `GEMINI_API_KEY` anahtarını eklemeniz yeterlidir.
 
 ## İletişim formu
 

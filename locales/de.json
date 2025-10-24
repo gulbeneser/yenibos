@@ -233,7 +233,7 @@
         "faqs": [
           {
             "question": "Mit welchen Modellen arbeitet ihr?",
-            "answer": "Wir kombinieren OpenAI, Anthropic und Open-Source-LLMs je nach Use Case."
+            "answer": "Wir setzen konsequent auf Gemini 2.5 Pro und stimmen Prompts je Workflow fein ab."
           }
         ]
       },

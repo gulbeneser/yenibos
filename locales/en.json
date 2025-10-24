@@ -233,7 +233,7 @@
         "faqs": [
           {
             "question": "Which models do you use?",
-            "answer": "We combine OpenAI, Anthropic and open-source LLMs based on fit."
+            "answer": "We standardize on Gemini 2.5 Pro with prompts tuned for each workflow."
           }
         ]
       },

@@ -233,7 +233,7 @@
         "faqs": [
           {
             "question": "Hangi modellerle çalışıyorsunuz?",
-            "answer": "OpenAI, Anthropic ve açık kaynak LLM'leri süreçlere göre harmanlıyoruz."
+            "answer": "Tüm iş akışlarını Gemini 2.5 Pro ile, her senaryo için optimize edilmiş promptlarla işletiyoruz."
           }
         ]
       },
