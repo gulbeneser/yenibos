@@ -36,7 +36,8 @@ export async function submitContact(
     return { success: false, message: 'Lütfen tüm alanları doğrulayın.' };
   }
 
-  const ip = headers().get('x-forwarded-for') ?? 'unknown';
+  const headerList = await headers();
+  const ip = headerList.get('x-forwarded-for') ?? 'unknown';
   const windowMs = 60_000;
   const now = Date.now();
   const entry = rateLimit.get(ip);

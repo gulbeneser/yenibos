@@ -54,7 +54,7 @@ export default async function CaseDetailPage({
             {labels.goal}
           </h2>
           <p className="mt-2 text-sm text-foreground/80">
-            {frontMatter.summary}
+            {frontMatter.summary ?? frontMatter.description}
           </p>
         </div>
         <div>

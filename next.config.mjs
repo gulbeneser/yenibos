@@ -17,8 +17,8 @@ const withMDX = createMDX({
 const nextConfig = {
   experimental: {
     mdxRs: true,
-    typedRoutes: true,
   },
+  typedRoutes: false,
   images: {
     remotePatterns: [],
   },

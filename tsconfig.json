@@ -20,10 +20,13 @@
       }
     ],
     "paths": {
+      "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
       "@/content/*": ["./content/*"],
-      "@/locales/*": ["./locales/*"]
+      "@/locales/*": ["./locales/*"],
+      "@/mdx-components": ["./mdx-components"],
+      "@/styles/*": ["./styles/*"]
     }
   },
   "include": [

@@ -15,6 +15,7 @@ type MDXResult = {
   locale: Locale;
   title: string;
   description: string;
+  summary?: string;
   category?: string;
   date?: string;
   industry?: string;
@@ -39,6 +40,7 @@ export async function getMdxList(type: 'blog' | 'cases', locale: Locale) {
       locale: data.locale,
       title: data.title,
       description: data.description,
+      summary: data.summary,
       category: data.category,
       date: data.date,
       industry: data.industry,
@@ -67,23 +69,19 @@ export async function getMdxBySlug(
     const raw = await fs.readFile(filePath, 'utf-8');
     const { data, content } = matter(raw);
     if (data.slug === slug && data.locale === locale) {
-      const { content: compiled } = await compileMDX<{ title: string }>(
-        {
-          source: content,
-          options: {
-            parseFrontmatter: false,
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-            },
+      const components = (await import('@/mdx-components')).mdxComponents;
+
+      const { content: compiled } = await compileMDX<{ title: string }>({
+        source: content,
+        options: {
+          parseFrontmatter: false,
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+            rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
           },
         },
-        {
-          components: await import('@/mdx-components').then(
-            (mod) => mod.mdxComponents,
-          ),
-        },
-      );
+        components,
+      });
 
       return {
         frontMatter: data as MDXResult,
