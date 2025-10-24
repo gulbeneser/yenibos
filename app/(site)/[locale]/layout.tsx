@@ -4,7 +4,10 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/schema';
 import type { Locale } from '@/lib/i18n/config';
-import { isLocale } from '@/lib/i18n/config';
+import {
+  resolveLocaleParam,
+  type RouteParamsPromise,
+} from '@/lib/i18n/routing';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 
@@ -13,13 +16,9 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: RouteParamsPromise;
 }) {
-  const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) {
-    notFound();
-  }
-  const locale: Locale = rawLocale;
+  const locale: Locale = await resolveLocaleParam(params);
   const messages = await getMessages();
 
   if (!messages) {

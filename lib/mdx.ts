@@ -22,6 +22,12 @@ type MDXResult = {
   metrics?: string[];
   tags?: string[];
   hero?: string;
+  readingTime?: string;
+  toc?: string[];
+  problem?: string;
+  solution?: string;
+  tools?: string[];
+  images?: Array<{ src: string; alt: string }>;
 };
 
 export async function getMdxList(type: 'blog' | 'cases', locale: Locale) {
@@ -55,7 +61,7 @@ export async function getMdxList(type: 'blog' | 'cases', locale: Locale) {
   );
 }
 
-export async function getMdxBySlug(
+export async function getMdxContent(
   type: 'blog' | 'cases',
   slug: string,
   locale: Locale,
@@ -84,7 +90,7 @@ export async function getMdxBySlug(
       });
 
       return {
-        frontMatter: data as MDXResult,
+        frontmatter: data as MDXResult,
         content: compiled,
       };
     }

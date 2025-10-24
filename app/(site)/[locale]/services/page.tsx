@@ -1,20 +1,18 @@
-import type { Locale } from '@/lib/i18n/config';
-import { isLocale } from '@/lib/i18n/config';
 import { ServiceCard } from '@/components/service-card';
 import { buildMetadata } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
+import {
+  resolveLocaleParam,
+  type RouteParamsPromise,
+} from '@/lib/i18n/routing';
+import type { Locale } from '@/lib/i18n/config';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: RouteParamsPromise;
 }) {
-  const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) {
-    notFound();
-  }
-  const locale: Locale = rawLocale;
+  const locale: Locale = await resolveLocaleParam(params);
   return buildMetadata({
     locale,
     path: `/${locale}/services`,

@@ -6,30 +6,29 @@ import { Testimonial } from '@/components/testimonial';
 import { Marquee } from '@/components/marquee';
 import { Button } from '@/components/ui/button';
 import { getMdxList } from '@/lib/mdx';
-import type { Locale } from '@/lib/i18n/config';
-import { isLocale } from '@/lib/i18n/config';
 import { buildMetadata } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
+import {
+  resolveLocaleParam,
+  type RouteParamsPromise,
+} from '@/lib/i18n/routing';
+import type { Locale } from '@/lib/i18n/config';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: RouteParamsPromise;
 }) {
-  const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) {
-    notFound();
-  }
-  const locale: Locale = rawLocale;
+  const locale: Locale = await resolveLocaleParam(params);
   return buildMetadata({ locale, path: `/${locale}` });
 }
 
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: RouteParamsPromise;
 }) {
+  const locale: Locale = await resolveLocaleParam(params);
   const messages = await getMessages();
   const home = (messages as any).home;
   const hero = home.hero;
@@ -44,11 +43,6 @@ export default async function HomePage({
     role: string;
   }>;
   const clients = home.clients as string[];
-  const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) {
-    notFound();
-  }
-  const locale: Locale = rawLocale;
   const cases = await getMdxList('cases', locale);
 
   return (
@@ -98,9 +92,7 @@ export default async function HomePage({
             </p>
           </div>
           <Button asChild variant="ghost" className="hidden md:inline-flex">
-            <Link href={`/${locale}/cases`}>
-              {home.selectedCases.cta}
-            </Link>
+            <Link href={`/${locale}/cases`}>{home.selectedCases.cta}</Link>
           </Button>
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-3">

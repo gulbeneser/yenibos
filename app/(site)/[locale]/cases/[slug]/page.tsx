@@ -1,129 +1,116 @@
-import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { getMdxBySlug } from '@/lib/mdx';
-import type { Locale } from '@/lib/i18n/config';
-import { isLocale } from '@/lib/i18n/config';
+import { getMdxContent } from '@/lib/mdx';
 import { buildMetadata } from '@/lib/seo';
-import { caseStudyJsonLd } from '@/lib/schema';
 import { getMessages } from 'next-intl/server';
+import {
+  resolveLocaleParam,
+  resolveRequiredParam,
+  type RouteParamsPromise,
+} from '@/lib/i18n/routing';
+import type { Locale } from '@/lib/i18n/config';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: RouteParamsPromise;
 }) {
-  const { locale: rawLocale, slug: rawSlug } = await params;
-  if (!isLocale(rawLocale)) {
+  const locale: Locale = await resolveLocaleParam(params);
+  const slug = await resolveRequiredParam(params, 'slug');
+  const content = await getMdxContent('cases', slug, locale);
+
+  if (!content) {
     notFound();
   }
-  const locale: Locale = rawLocale;
-  const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
-  if (!slug) {
-    notFound();
-  }
-  const result = await getMdxBySlug('cases', slug, locale);
-  if (!result)
-    return buildMetadata({
-      locale,
-      path: `/${locale}/cases/${slug}`,
-    });
+
   return buildMetadata({
     locale,
     path: `/${locale}/cases/${slug}`,
-    title: result.frontMatter.title,
-    description: result.frontMatter.description,
+    title: content.frontmatter.title,
+    description: content.frontmatter.description,
   });
 }
 
 export default async function CaseDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: RouteParamsPromise;
 }) {
-  const { locale: rawLocale, slug: rawSlug } = await params;
-  if (!isLocale(rawLocale)) {
-    notFound();
-  }
-  const locale: Locale = rawLocale;
-  const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
-  if (!slug) {
-    notFound();
-  }
-  const result = await getMdxBySlug('cases', slug, locale);
+  const locale: Locale = await resolveLocaleParam(params);
+  const slug = await resolveRequiredParam(params, 'slug');
+  const content = await getMdxContent('cases', slug, locale);
 
-  if (!result) {
+  if (!content) {
     notFound();
   }
 
-  const { frontMatter, content } = result;
+  const { frontmatter, content: body } = content;
   const messages = await getMessages();
-  const labels = (messages as any).cases.detail;
+  const casesMessages = (messages as any).caseDetail;
 
   return (
-    <article className="prose prose-invert prose-lg max-w-3xl">
-      <h1 className="font-display text-4xl font-semibold">
-        {frontMatter.title}
-      </h1>
-      <p className="mt-3 text-sm text-muted">
-        {frontMatter.industry} • {frontMatter.description}
-      </p>
-      <div className="mt-8 grid gap-6 rounded-3xl border border-brand-500/20 bg-brand-900/40 p-6 shadow-soft md:grid-cols-3">
+    <article className="space-y-10">
+      <header className="space-y-4">
+        <span className="text-sm uppercase tracking-wide text-brand-300">
+          {frontmatter.industry}
+        </span>
+        <h1 className="font-display text-4xl font-semibold">
+          {frontmatter.title}
+        </h1>
+        <p className="text-muted">{frontmatter.description}</p>
+      </header>
+
+      <section className="grid gap-8 rounded-3xl border border-brand-500/20 bg-brand-900/40 p-8 shadow-soft lg:grid-cols-3">
         <div>
-          <h2 className="font-display text-sm uppercase tracking-wide text-muted">
-            {labels.goal}
-          </h2>
-          <p className="mt-2 text-sm text-foreground/80">
-            {frontMatter.summary ?? frontMatter.description}
-          </p>
+          <h2 className="font-display text-xl">{casesMessages.problem}</h2>
+          <p className="mt-2 text-sm text-muted">{frontmatter.problem}</p>
         </div>
         <div>
-          <h2 className="font-display text-sm uppercase tracking-wide text-muted">
-            {labels.results}
-          </h2>
-          <ul className="mt-2 space-y-2 text-sm text-foreground/80">
-            {(frontMatter.metrics ?? []).map((metric) => (
+          <h2 className="font-display text-xl">{casesMessages.solution}</h2>
+          <p className="mt-2 text-sm text-muted">{frontmatter.solution}</p>
+        </div>
+        <div>
+          <h2 className="font-display text-xl">{casesMessages.results}</h2>
+          <ul className="mt-2 space-y-2 text-sm text-muted">
+            {frontmatter.metrics?.map((metric: string) => (
               <li key={metric}>{metric}</li>
             ))}
           </ul>
         </div>
-        <div>
-          <h2 className="font-display text-sm uppercase tracking-wide text-muted">
-            {labels.tech}
-          </h2>
-          <ul className="mt-2 space-y-2 text-sm text-foreground/80">
-            {(frontMatter.tags ?? []).map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="relative mt-8 h-64 w-full overflow-hidden rounded-3xl">
-        <Image
-          src={frontMatter.hero ?? '/placeholders/case-placeholder.svg'}
-          alt={frontMatter.title}
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/90">
-        {content}
-      </div>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            caseStudyJsonLd({
-              locale,
-              title: frontMatter.title,
-              slug: frontMatter.slug,
-              industry: frontMatter.industry ?? '',
-              summary: frontMatter.description,
-            }),
-          ),
-        }}
-      />
+      </section>
+
+      <section>
+        <h2 className="font-display text-xl">{casesMessages.techStack}</h2>
+        <ul className="mt-4 flex flex-wrap gap-3 text-sm text-muted">
+          {frontmatter.tools?.map((tool: string) => (
+            <li
+              key={tool}
+              className="rounded-full border border-brand-500/20 px-4 py-2"
+            >
+              {tool}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="grid gap-6 md:grid-cols-2">
+        {frontmatter.images?.map((image: any) => (
+          <div
+            key={image.alt}
+            className="overflow-hidden rounded-3xl border border-brand-500/20"
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={600}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ))}
+      </section>
+
+      <section className="prose prose-invert max-w-none">{body}</section>
     </article>
   );
 }
