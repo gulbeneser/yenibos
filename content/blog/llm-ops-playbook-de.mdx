@@ -1,0 +1,26 @@
+---
+title: 'Das LLM-Operations-Playbook'
+slug: 'llm-ops-playbook'
+locale: 'de'
+description: 'RAG, Prompt-Governance und Monitoring für LLM-Services in Produktion.'
+date: '2024-04-02'
+category: 'AI'
+---
+
+## Bausteine
+
+- **Datenebene:** Aufbereitete Inhalte, Embeddings und Versionierung.
+- **Modell-Orchestrierung:** OpenAI, Anthropic oder Open Source je nach Use Case.
+- **Monitoring:** Antwortqualität und Kosten im Blick.
+
+HighlightBox title="Monitoring-Stack"
+Grafana und Prometheus visualisieren Tokenverbrauch, Latenz und Qualitätswerte.
+HighlightBox
+
+## Betriebsrhythmus
+
+ProCon pros={['Wöchentliche Aktualisierung der Testsets', 'Business-Teams geben Feedback', 'Kostenalarme automatisiert']} cons={['Kontinuierliche Datenhygiene nötig', 'Modellupdates brauchen klare Prozesse']}
+
+Callout type="info" title="Implementierung"
+Ein dediziertes Staging für LLM-Workloads minimiert Ausrollrisiken.
+Callout

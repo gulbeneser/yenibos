@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="48" fill="url(#grad)" />
+  <g fill="#E6EAF2" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+    <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-size="40" opacity="0.95">
+      Strategy — Design — Delivery
+    </text>
+    <text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-size="24" opacity="0.7">
+      AI-native automation & multilingual experiences
+    </text>
+  </g>
+</svg>

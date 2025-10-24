@@ -1,0 +1,463 @@
+{
+  "layout": {
+    "navigation": {
+      "links": [
+        {
+          "href": "/",
+          "label": "Home"
+        },
+        {
+          "href": "/services",
+          "label": "Services"
+        },
+        {
+          "href": "/cases",
+          "label": "Case Studies"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/blog",
+          "label": "Blog"
+        }
+      ],
+      "cta": {
+        "href": "/contact",
+        "label": "Request a quote"
+      }
+    },
+    "footer": {
+      "description": "Fures Tech is a boutique studio crafting AI-powered design, automation and multilingual web experiences.",
+      "newsletter": {
+        "title": "Stay in the loop",
+        "hint": "We share monthly insights on AI automation and high-performing websites."
+      },
+      "groups": [
+        {
+          "title": "Company",
+          "links": [
+            {
+              "href": "/about",
+              "label": "About"
+            },
+            {
+              "href": "/services",
+              "label": "Services"
+            },
+            {
+              "href": "/pricing",
+              "label": "Pricing"
+            }
+          ]
+        },
+        {
+          "title": "Resources",
+          "links": [
+            {
+              "href": "/blog",
+              "label": "Blog"
+            },
+            {
+              "href": "/cases",
+              "label": "Case studies"
+            },
+            {
+              "href": "/legal/privacy",
+              "label": "Privacy"
+            }
+          ]
+        },
+        {
+          "title": "Contact",
+          "links": [
+            {
+              "href": "/contact",
+              "label": "Work with us"
+            },
+            {
+              "href": "https://www.linkedin.com/company/fures-tech",
+              "label": "LinkedIn"
+            },
+            {
+              "href": "https://www.instagram.com/furestech",
+              "label": "Instagram"
+            }
+          ]
+        }
+      ],
+      "legal": [
+        {
+          "href": "/legal/privacy",
+          "label": "Privacy"
+        },
+        {
+          "href": "/legal/terms",
+          "label": "Terms"
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AI-native web design and automation studio — Fures Tech",
+      "subtitle": "We craft multilingual, lightning-fast, SEO-optimized websites with automation that keeps your funnel running on rails.",
+      "primaryCta": {
+        "href": "/contact",
+        "label": "Request a quote"
+      },
+      "secondaryCta": {
+        "href": "/cases",
+        "label": "View case studies"
+      }
+    },
+    "whatWeDo": {
+      "title": "What we do",
+      "items": [
+        {
+          "title": "Web & eCommerce",
+          "description": "Next.js experiences without the CMS overhead, optimized for scale."
+        },
+        {
+          "title": "AI automation",
+          "description": "Automation for content creation, operations and data flows."
+        },
+        {
+          "title": "Social & content",
+          "description": "Multilingual content pipelines and channel management."
+        },
+        {
+          "title": "Integrations",
+          "description": "ElektraWeb, Make, Airtable and bespoke API bridges."
+        }
+      ]
+    },
+    "selectedCases": {
+      "title": "Selected work",
+      "description": "A sample of conversion-focused launches.",
+      "cta": "Browse all cases"
+    },
+    "process": {
+      "title": "Delivered in four steps",
+      "steps": [
+        {
+          "title": "Discovery",
+          "description": "We map stakeholders and outcomes to frame a measurable roadmap."
+        },
+        {
+          "title": "Design",
+          "description": "UI, UX and information architecture validated by AI-assisted research."
+        },
+        {
+          "title": "Development",
+          "description": "We ship Next.js modules, automations and integrations."
+        },
+        {
+          "title": "Growth",
+          "description": "Analytics, SEO and content loops refined continuously."
+        }
+      ]
+    },
+    "stats": [
+      {
+        "label": "Average Lighthouse performance",
+        "value": "98"
+      },
+      {
+        "label": "Multilingual pages delivered",
+        "value": "3000+"
+      },
+      {
+        "label": "Automation scenarios shipped",
+        "value": "120+"
+      },
+      {
+        "label": "Average go-live",
+        "value": "5 weeks"
+      }
+    ],
+    "cta": {
+      "title": "Book a 15-minute discovery call",
+      "subtitle": "Kickstart systematic growth with Fures Tech.",
+      "button": "Schedule a call"
+    },
+    "testimonials": [
+      {
+        "quote": "Fures tripled our site speed and automated the content workflow end-to-end.",
+        "author": "Selin K.",
+        "role": "CMO, TravelHub"
+      }
+    ],
+    "clients": ["ElektraWeb", "Lazzoni", "Blueground", "Otto Rooms", "Mekanist"]
+  },
+  "services": {
+    "title": "Services",
+    "intro": "Our AI-native approach aligns web, automation and content operations under one roof.",
+    "sections": [
+      {
+        "id": "web",
+        "title": "Web & eCommerce",
+        "description": "Multilingual, high-speed and SEO-focused Next.js builds.",
+        "deliverables": [
+          "App Router architecture with static caching",
+          "MDX content system and publishing pipeline",
+          "Performance optimization with 95+ Lighthouse"
+        ],
+        "kpis": [
+          "40% lift in organic traffic",
+          "<1s largest contentful paint",
+          "25% conversion rate increase"
+        ],
+        "faqs": [
+          {
+            "question": "Do we need a headless CMS?",
+            "answer": "No. JSON/MDX pipelines keep maintenance lean and fast."
+          }
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "AI & Automation",
+        "description": "We automate content, support bots and data intelligence.",
+        "deliverables": [
+          "RAG-powered knowledge bases",
+          "Content and visual generation pipelines",
+          "Make, Airtable and custom integrations"
+        ],
+        "kpis": [
+          "60% time saved per workflow",
+          "Publish content in minutes",
+          "30% faster support responses"
+        ],
+        "faqs": [
+          {
+            "question": "Which models do you use?",
+            "answer": "We combine OpenAI, Anthropic and open-source LLMs based on fit."
+          }
+        ]
+      },
+      {
+        "id": "tourism",
+        "title": "Tourism & Hospitality Integrations",
+        "description": "Integrations and automation dedicated to travel operations.",
+        "deliverables": [
+          "ElektraWeb & Fidelio connectivity",
+          "Omnichannel rate and inventory sync",
+          "Automated proposal and booking flows"
+        ],
+        "kpis": [
+          "35% faster booking responses",
+          "70% fewer manual errors",
+          "20% uplift in revenue management"
+        ],
+        "faqs": [
+          {
+            "question": "How do you secure data?",
+            "answer": "ISO-aligned pipelines with access controls and audit logs."
+          }
+        ]
+      },
+      {
+        "id": "content",
+        "title": "Social Media & Content",
+        "description": "We establish multilingual content operations for your brand.",
+        "deliverables": [
+          "AI-assisted editorial calendar",
+          "Video and visual production pipeline",
+          "Performance dashboards"
+        ],
+        "kpis": [
+          "50% faster content output",
+          "Consistent tone across languages",
+          "35% increase in engagement"
+        ],
+        "faqs": [
+          {
+            "question": "We lack in-house creators, is that a problem?",
+            "answer": "No. We operate end-to-end and hand over playbooks."
+          }
+        ]
+      },
+      {
+        "id": "consulting",
+        "title": "Consulting & Training",
+        "description": "We upskill teams with AI and modern web practices.",
+        "deliverables": [
+          "1-3 day workshops",
+          "Technical audit and roadmap",
+          "Enablement documentation"
+        ],
+        "kpis": [
+          "30% reduction in time-to-launch",
+          "Higher team satisfaction",
+          "Autonomous operating habits"
+        ],
+        "faqs": [
+          {
+            "question": "Can sessions be tailored?",
+            "answer": "Yes. Modules are adapted to your objectives."
+          }
+        ]
+      }
+    ]
+  },
+  "cases": {
+    "title": "Case studies",
+    "intro": "Projects across web, automation and hospitality.",
+    "filters": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "web",
+        "label": "Web"
+      },
+      {
+        "id": "ai",
+        "label": "AI/Automation"
+      },
+      {
+        "id": "tourism",
+        "label": "Tourism"
+      }
+    ],
+    "detail": {
+      "goal": "Goal",
+      "results": "Results",
+      "tech": "Technology stack"
+    }
+  },
+  "about": {
+    "title": "Who is Fures Tech?",
+    "intro": "We accelerate growth with AI-native design and automation.",
+    "story": "Fures Tech was founded in Vienna by product, design and automation specialists united by a systems mindset. We blend data and design to deliver measurable growth.",
+    "values": [
+      "Transparent, measurable processes",
+      "Multilingual thinking and localisation",
+      "Systems design for lasting value"
+    ],
+    "timeline": [
+      {
+        "year": "2019",
+        "event": "First AI automation project shipped"
+      },
+      {
+        "year": "2021",
+        "event": "Fures Tech brand launched"
+      },
+      {
+        "year": "2023",
+        "event": "3000+ page multilingual platform"
+      },
+      {
+        "year": "2024",
+        "event": "Hospitality integration suite released"
+      }
+    ],
+    "competencies": [
+      "High-performance Next.js with App Router",
+      "LLM orchestration and content pipelines",
+      "Omnichannel automation architectures",
+      "Hospitality integrations"
+    ],
+    "valuesTitle": "How we work",
+    "competencyTitle": "Core capabilities",
+    "timelineTitle": "Timeline"
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "Insights on AI, automation and web design.",
+    "readMore": "Read more"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Three packages plus custom scope options.",
+    "note": "We also work on scope-based engagements when fixed pricing doesn't fit.",
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "From €4,900",
+        "description": "Perfect for MVPs and early launches.",
+        "features": [
+          "Next.js site up to 10 pages",
+          "TR/EN localisation",
+          "Baseline automation audit"
+        ]
+      },
+      {
+        "name": "Growth",
+        "price": "From €9,800",
+        "description": "For multilingual sites and content operations.",
+        "features": [
+          "Up to 30 multilingual pages",
+          "AI content pipeline setup",
+          "CRM & analytics integrations"
+        ],
+        "highlighted": true
+      },
+      {
+        "name": "Partner",
+        "price": "€18,000+",
+        "description": "Ongoing optimisation for scaling teams.",
+        "features": [
+          "Unlimited module development",
+          "Custom automation architecture",
+          "Monthly growth rituals"
+        ]
+      }
+    ],
+    "custom": {
+      "title": "Custom engagement",
+      "description": "Need something unique? We design hybrid or workshop-first plans.",
+      "cta": "Schedule a call"
+    },
+    "faq": [
+      {
+        "question": "How do payments work?",
+        "answer": "We operate 40% upfront and 60% on launch."
+      },
+      {
+        "question": "What's your support window?",
+        "answer": "We include 30 days of stabilisation after go-live."
+      },
+      {
+        "question": "Do you limit revisions?",
+        "answer": "Each sprint ships tangible deliverables with reviews inside the sprint cadence."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's grow your project",
+    "subtitle": "Fill the short form and we respond within 24 hours.",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "country": "Country",
+      "summary": "Project summary",
+      "budget": "Estimated budget",
+      "timeline": "Timeline",
+      "submit": "Submit",
+      "fallback": "If the form fails, email hello@fures.at."
+    },
+    "success": "Submission received",
+    "failure": "Submission failed"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": "Fures Tech only processes personal data for communication and project evaluation. Data is never shared with third parties and is removed upon request."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "content": "By using this site you acknowledge the content is informational. All services are subject to separate agreements."
+    }
+  },
+  "search": {
+    "title": "Site search",
+    "placeholder": "What are you looking for?",
+    "noResults": "No results found.",
+    "results": "Results"
+  }
+}

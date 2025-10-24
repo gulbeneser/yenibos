@@ -1,0 +1,463 @@
+{
+  "layout": {
+    "navigation": {
+      "links": [
+        {
+          "href": "/",
+          "label": "Ana Sayfa"
+        },
+        {
+          "href": "/services",
+          "label": "Hizmetler"
+        },
+        {
+          "href": "/cases",
+          "label": "Vaka Çalışmaları"
+        },
+        {
+          "href": "/pricing",
+          "label": "Fiyatlandırma"
+        },
+        {
+          "href": "/blog",
+          "label": "Blog"
+        }
+      ],
+      "cta": {
+        "href": "/contact",
+        "label": "Teklif al"
+      }
+    },
+    "footer": {
+      "description": "Fures Tech; AI-destekli tasarım, otomasyon ve çok dilli web deneyimleri geliştiren butik bir stüdyodur.",
+      "newsletter": {
+        "title": "Gündemi kaçırmayın",
+        "hint": "Aylık olarak AI ve web otomasyonu içgörülerimizi paylaşıyoruz."
+      },
+      "groups": [
+        {
+          "title": "Şirket",
+          "links": [
+            {
+              "href": "/about",
+              "label": "Hakkımızda"
+            },
+            {
+              "href": "/services",
+              "label": "Hizmetler"
+            },
+            {
+              "href": "/pricing",
+              "label": "Fiyatlandırma"
+            }
+          ]
+        },
+        {
+          "title": "Kaynaklar",
+          "links": [
+            {
+              "href": "/blog",
+              "label": "Blog"
+            },
+            {
+              "href": "/cases",
+              "label": "Vaka çalışmaları"
+            },
+            {
+              "href": "/legal/privacy",
+              "label": "Gizlilik"
+            }
+          ]
+        },
+        {
+          "title": "İletişim",
+          "links": [
+            {
+              "href": "/contact",
+              "label": "Bize ulaşın"
+            },
+            {
+              "href": "https://www.linkedin.com/company/fures-tech",
+              "label": "LinkedIn"
+            },
+            {
+              "href": "https://www.instagram.com/furestech",
+              "label": "Instagram"
+            }
+          ]
+        }
+      ],
+      "legal": [
+        {
+          "href": "/legal/privacy",
+          "label": "Gizlilik"
+        },
+        {
+          "href": "/legal/terms",
+          "label": "Kullanım Şartları"
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AI-destekli web tasarım ve otomasyon stüdyosu — Fures Tech",
+      "subtitle": "Çok dilli, ışık hızında, SEO odaklı ve otomasyonla güçlendirilmiş web deneyimleri tasarlıyor; satış huninizi uçtan uca optimize ediyoruz.",
+      "primaryCta": {
+        "href": "/contact",
+        "label": "Teklif al"
+      },
+      "secondaryCta": {
+        "href": "/cases",
+        "label": "Vaka çalışmaları"
+      }
+    },
+    "whatWeDo": {
+      "title": "Ne yapıyoruz?",
+      "items": [
+        {
+          "title": "Web & E-ticaret",
+          "description": "Next.js tabanlı, headless CMS'e ihtiyaç duymayan hızlı siteler."
+        },
+        {
+          "title": "AI otomasyon",
+          "description": "İçerik üretimi, operasyon ve veri akışları için otomasyon."
+        },
+        {
+          "title": "Sosyal & içerik",
+          "description": "Markanız için çok dilli içerik pipeline ve sosyal varlık yönetimi."
+        },
+        {
+          "title": "Entegrasyonlar",
+          "description": "ElektraWeb, Make, Airtable ve özel API entegrasyonları."
+        }
+      ]
+    },
+    "selectedCases": {
+      "title": "Seçme işler",
+      "description": "Dönüşüm odaklı projelerimizden bazıları.",
+      "cta": "Tüm vaka çalışmaları"
+    },
+    "process": {
+      "title": "Dört adımda teslim",
+      "steps": [
+        {
+          "title": "Keşif",
+          "description": "Paydaşlarınızı ve hedeflerinizi öğrenip ölçülebilir yol haritası çıkarıyoruz."
+        },
+        {
+          "title": "Tasarım",
+          "description": "UI, UX ve içerik mimarisini AI destekli araştırmalarla oluşturuyoruz."
+        },
+        {
+          "title": "Geliştirme",
+          "description": "Next.js, otomasyon ve entegrasyonları devreye alıyoruz."
+        },
+        {
+          "title": "Büyüme",
+          "description": "Analitik, SEO ve içerik pipeline'ınızı sürekli optimize ediyoruz."
+        }
+      ]
+    },
+    "stats": [
+      {
+        "label": "Ortalama Lighthouse performansı",
+        "value": "98"
+      },
+      {
+        "label": "Çok dilli sayfa teslimi",
+        "value": "3000+"
+      },
+      {
+        "label": "AI otomasyon senaryosu",
+        "value": "120+"
+      },
+      {
+        "label": "Ortalama canlıya alma",
+        "value": "5 hafta"
+      }
+    ],
+    "cta": {
+      "title": "15 dakikalık keşif görüşmesi planla",
+      "subtitle": "Fures Tech ile sistematik büyüme için ilk adımı atın.",
+      "button": "Görüşme planla"
+    },
+    "testimonials": [
+      {
+        "quote": "Fures ekibi site hızını üçe katladı ve içerik operasyonumuzu otomatikleştirdi.",
+        "author": "Selin K.",
+        "role": "CMO, TravelHub"
+      }
+    ],
+    "clients": ["ElektraWeb", "Lazzoni", "Blueground", "Otto Rooms", "Mekanist"]
+  },
+  "services": {
+    "title": "Hizmetler",
+    "intro": "AI-native yaklaşımımız web, otomasyon ve içerik süreçlerinizi tek çatı altında hizalar.",
+    "sections": [
+      {
+        "id": "web",
+        "title": "Web & E-Ticaret",
+        "description": "Çok dilli, yüksek hızlı ve SEO odaklı Next.js projeleri.",
+        "deliverables": [
+          "App Router mimarisi ve statik önbellek",
+          "MDX içerik sistemi ve içerik pipeline",
+          "Performans optimizasyonu ve Lighthouse 95+"
+        ],
+        "kpis": [
+          "%40 daha yüksek organik trafik",
+          "<1 sn ilk boyama",
+          "%25 daha yüksek dönüşüm"
+        ],
+        "faqs": [
+          {
+            "question": "Headless CMS gerekiyor mu?",
+            "answer": "Hayır, JSON/MDX içerik pipeline ile teknik borcu azaltıyoruz."
+          }
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "AI & Otomasyon",
+        "description": "İçerik üretimi, destek botları ve veri akışlarını otomatikleştiriyoruz.",
+        "deliverables": [
+          "RAG tabanlı bilgi tabanları",
+          "İçerik ve görsel üretim pipeline",
+          "Make, Airtable ve özel entegrasyonlar"
+        ],
+        "kpis": [
+          "%60 zaman tasarrufu",
+          "Dakikalar içinde içerik yayını",
+          "%30 daha hızlı destek yanıtı"
+        ],
+        "faqs": [
+          {
+            "question": "Hangi modellerle çalışıyorsunuz?",
+            "answer": "OpenAI, Anthropic ve açık kaynak LLM'leri süreçlere göre harmanlıyoruz."
+          }
+        ]
+      },
+      {
+        "id": "tourism",
+        "title": "Turizm & Otel Entegrasyonları",
+        "description": "Otel ve turizm operasyonlarına özel entegrasyonlar ve otomasyon.",
+        "deliverables": [
+          "ElektraWeb & Fidelio entegrasyonları",
+          "Çok kanallı fiyat ve stok senkronizasyonu",
+          "Otomatik teklif ve rezervasyon akışları"
+        ],
+        "kpis": [
+          "%35 daha hızlı rezervasyon yanıtı",
+          "Hata payında %70 azalma",
+          "Gelir yönetiminde %20 iyileşme"
+        ],
+        "faqs": [
+          {
+            "question": "Güvenlik nasıl sağlanıyor?",
+            "answer": "ISO uyumlu veri akışı, erişim kısıtları ve audit loglarıyla."
+          }
+        ]
+      },
+      {
+        "id": "content",
+        "title": "Sosyal Medya & İçerik",
+        "description": "Markanız için çok dilli içerik operasyonu kuruyoruz.",
+        "deliverables": [
+          "AI destekli içerik takvimi",
+          "Video ve görsel pipeline",
+          "Performans raporları"
+        ],
+        "kpis": [
+          "%50 içerik üretim hızı",
+          "Her dilde tutarlı ton",
+          "%35 daha yüksek etkileşim"
+        ],
+        "faqs": [
+          {
+            "question": "Ekibimizde içerikçi yok, sorun mu?",
+            "answer": "Hayır; süreçleri uçtan uca devralıp dokümanlarla teslim ediyoruz."
+          }
+        ]
+      },
+      {
+        "id": "consulting",
+        "title": "Danışmanlık & Eğitim",
+        "description": "Ekiplerinizi AI ve modern web süreçleriyle güçlendiriyoruz.",
+        "deliverables": [
+          "1-3 günlük workshop'lar",
+          "Teknik denetim ve yol haritası",
+          "Takım içi enablement dokümantasyonu"
+        ],
+        "kpis": [
+          "Ürün çıkarma süresinde %30 azalma",
+          "Ekip memnuniyetinde artış",
+          "Otonom çalışma kasları"
+        ],
+        "faqs": [
+          {
+            "question": "Programları özelleştirebilir miyiz?",
+            "answer": "Evet, hedeflerinize göre modüler yapılandırıyoruz."
+          }
+        ]
+      }
+    ]
+  },
+  "cases": {
+    "title": "Vaka çalışmaları",
+    "intro": "Web, otomasyon ve turizm dikeyindeki projelerimiz.",
+    "filters": [
+      {
+        "id": "all",
+        "label": "Tümü"
+      },
+      {
+        "id": "web",
+        "label": "Web"
+      },
+      {
+        "id": "ai",
+        "label": "AI/Otomasyon"
+      },
+      {
+        "id": "tourism",
+        "label": "Turizm"
+      }
+    ],
+    "detail": {
+      "goal": "Hedef",
+      "results": "Sonuçlar",
+      "tech": "Teknolojiler"
+    }
+  },
+  "about": {
+    "title": "Fures Tech kimdir?",
+    "intro": "AI-native tasarım ve otomasyonla kurumların büyümesini hızlandırıyoruz.",
+    "story": "Fures Tech, farklı disiplinlerden gelen ürün, tasarım ve otomasyon uzmanlarının bir araya gelmesiyle Viyana'da kuruldu. Odak noktamız; veri ile tasarımı buluşturarak ölçülebilir büyüme yaratmak.",
+    "values": [
+      "Şeffaf ve ölçülebilir süreçler",
+      "Çok dilli düşünme ve yerelleştirme",
+      "Sistem tasarımı ile kalıcı değer"
+    ],
+    "timeline": [
+      {
+        "year": "2019",
+        "event": "Kurucu ekibin ilk AI otomasyon projesi"
+      },
+      {
+        "year": "2021",
+        "event": "Fures Tech markasının doğuşu"
+      },
+      {
+        "year": "2023",
+        "event": "3000+ sayfalık çok dilli platform"
+      },
+      {
+        "year": "2024",
+        "event": "Turizm entegrasyon paketinin lansmanı"
+      }
+    ],
+    "competencies": [
+      "App Router ile yüksek performanslı Next.js",
+      "LLM orkestrasyonu ve içerik pipeline",
+      "Çok kanallı otomasyon mimarileri",
+      "Turizm entegrasyonları"
+    ],
+    "valuesTitle": "Yaklaşımımız",
+    "competencyTitle": "Çekirdek yetkinlikler",
+    "timelineTitle": "Zaman çizelgesi"
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "AI, otomasyon ve web tasarımı üzerine içgörüler.",
+    "readMore": "Devamını oku"
+  },
+  "pricing": {
+    "title": "Fiyatlandırma",
+    "subtitle": "İhtiyacınıza göre üç paket ve özel kapsam seçenekleri.",
+    "note": "Sabit fiyat yerine kapsam bazlı çalışma seçeneği mevcuttur.",
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "€4.900'dan",
+        "description": "MVP veya yeni lansman yapan ekipler için.",
+        "features": [
+          "10 sayfaya kadar Next.js site",
+          "TR/EN dil desteği",
+          "Temel otomasyon audit"
+        ]
+      },
+      {
+        "name": "Growth",
+        "price": "€9.800'dan",
+        "description": "Çok dilli siteler ve içerik operasyonları için.",
+        "features": [
+          "30 sayfaya kadar çok dilli site",
+          "AI içerik pipeline kurulumu",
+          "CRM & analiz entegrasyonları"
+        ],
+        "highlighted": true
+      },
+      {
+        "name": "Partner",
+        "price": "€18.000+",
+        "description": "Sürekli iyileştirme isteyen ölçeklenen ekipler için.",
+        "features": [
+          "Sınırsız modül geliştirme",
+          "Özel otomasyon mimarisi",
+          "Aylık büyüme ritüelleri"
+        ]
+      }
+    ],
+    "custom": {
+      "title": "Özel teklif",
+      "description": "İşiniz benzersiz mi? Hibrit veya atölye tabanlı planlar sunuyoruz.",
+      "cta": "Görüşme planla"
+    },
+    "faq": [
+      {
+        "question": "Ödemeler nasıl ilerliyor?",
+        "answer": "Proje başlangıcında %40, canlıya çıkışta %60 modeliyle ilerliyoruz."
+      },
+      {
+        "question": "Destek süreniz ne kadar?",
+        "answer": "Canlıya aldıktan sonra 30 gün stabilizasyon desteği sağlıyoruz."
+      },
+      {
+        "question": "Revizyon limitiniz var mı?",
+        "answer": "Her sprint sonunda net çıktılar sunarak revizyonları sprint döngüsünde ele alıyoruz."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Projenizi birlikte büyütelim",
+    "subtitle": "Kısa bir form doldurun, 24 saat içinde yanıtlayalım.",
+    "labels": {
+      "name": "Adınız",
+      "email": "E-posta",
+      "country": "Ülke",
+      "summary": "Proje özeti",
+      "budget": "Tahmini bütçe",
+      "timeline": "Hedef zamanlama",
+      "submit": "Gönder",
+      "fallback": "Form çalışmazsa hello@fures.at adresine e-posta atabilirsiniz."
+    },
+    "success": "Gönderim başarılı",
+    "failure": "Gönderim başarısız"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "content": "Fures Tech, kişisel verileri yalnızca iletişim ve proje değerlendirme amaçlı kullanır. Veriler üçüncü taraflarla paylaşılmaz ve talep halinde silinir."
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "content": "Bu siteyi kullanarak Fures Tech'in sunduğu içeriklerin bilgilendirme amaçlı olduğunu kabul etmiş olursunuz. Tüm hizmetler ayrı sözleşmeye tabidir."
+    }
+  },
+  "search": {
+    "title": "Site içi arama",
+    "placeholder": "Ne aramıştınız?",
+    "noResults": "Sonuç bulunamadı.",
+    "results": "Sonuçlar"
+  }
+}
