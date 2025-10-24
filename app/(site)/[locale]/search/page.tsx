@@ -21,11 +21,12 @@ export default async function SearchPage({
   searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 }) {
   const messages = await getMessages();
   const { locale } = await params;
-  const query = (searchParams.q ?? '').toLowerCase();
+  const resolvedSearchParams = (await searchParams) ?? {};
+  const query = (resolvedSearchParams.q ?? '').toLowerCase();
   const blog = await getMdxList('blog', locale);
   const cases = await getMdxList('cases', locale);
   const results = [...blog, ...cases].filter((item) =>
@@ -42,7 +43,7 @@ export default async function SearchPage({
         <form className="mt-4">
           <input
             name="q"
-            defaultValue={searchParams.q ?? ''}
+            defaultValue={resolvedSearchParams.q ?? ''}
             placeholder={search.placeholder}
             className="w-full rounded-2xl border border-brand-500/20 bg-brand-900/40 px-4 py-3 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
           />

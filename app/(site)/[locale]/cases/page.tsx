@@ -23,12 +23,13 @@ export default async function CasesPage({
   searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
-  searchParams: { filter?: string };
+  searchParams: Promise<{ filter?: string }>;
 }) {
   const messages = await getMessages();
   const casesMessages = (messages as any).cases;
   const { locale } = await params;
-  const filter = searchParams.filter ?? 'all';
+  const resolvedSearchParams = (await searchParams) ?? {};
+  const filter = resolvedSearchParams.filter ?? 'all';
   const data = await getMdxList('cases', locale);
   const filtered =
     filter === 'all'
